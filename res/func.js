@@ -163,17 +163,17 @@ document.getElementById('report_mode').addEventListener("click", function() {
   mode = "report_mode";
   $('#panel').hide();
   $('#reportTools').show(200, function() {
-    document.getElementById('reportTotalSurface').innerHTML = "Total de la surface : <b>"+(globalArea/3600).toFixed(1)+ "</b> m²";
+    document.getElementById('reportTotalSurface').innerHTML = "Total area : <b>"+(globalArea/3600).toFixed(1)+ "</b> m²";
     $('#reportTotalSurface').show(1000);
-    document.getElementById('reportNumberSurface').innerHTML = "Nombre pièces : <b>"+ROOM.length+ "</b>";
+    document.getElementById('reportNumberSurface').innerHTML = "Rooms : <b>"+ROOM.length+ "</b>";
     $('#reportNumberSurface').show(1000);
     var number = 1;
     var reportRoom = '<div class="row">\n';
     for (var k in ROOM) {
-      var nameRoom = "Pièce n°"+number+" <small>(sans nom)</small>";
+      var nameRoom = "Room n°"+number+" <small>(noname)</small>";
       if (ROOM[k].name != "") nameRoom = ROOM[k].name;
       reportRoom+= '<div class="col-md-6"><p>'+nameRoom+'</p></div>\n';
-      reportRoom+= '<div class="col-md-6"><p>Surface : <b>'+((ROOM[k].area)/3600).toFixed(2)+'</b> m²</p></div>\n';
+      reportRoom+= '<div class="col-md-6"><p>Area : <b>'+((ROOM[k].area)/3600).toFixed(2)+'</b> m²</p></div>\n';
       number++;
     }
     reportRoom+='</div><hr/>\n';
@@ -188,25 +188,25 @@ document.getElementById('report_mode').addEventListener("click", function() {
         if (OBJDATA[k].type == 'wallLight' || OBJDATA[k].type == 'roofLight') lampNumber++;
       }
     }
-    reportRoom+='<p>Nombre d\'interrupteur(s) : '+switchNumber+'</p>';
-    reportRoom+='<p>Nombre de prise(s) secteur : '+plugNumber+'</p>';
-    reportRoom+='<p>Nombre de point(s) de lumière : '+lampNumber+'</p>';
+    reportRoom+='<p>Switches : '+switchNumber+'</p>';
+    reportRoom+='<p>Power plugs : '+plugNumber+'</p>';
+    reportRoom+='<p>Light points : '+lampNumber+'</p>';
     reportRoom+='</div>';
     reportRoom+='<div>\n';
-    reportRoom+='<h2>Répartition énergie par pièce</h2>\n';
+    reportRoom+='<h2>Energy distribution by room</h2>\n';
     var number = 1;
     reportRoom+= '<div class="row">\n';
-    reportRoom+= '<div class="col-md-4"><p>Libellé</p></div>\n';
-    reportRoom+= '<div class="col-md-2"><small>Int.</small></div>\n';
-    reportRoom+= '<div class="col-md-2"><small>Pri. sec.</small></div>\n';
-    reportRoom+= '<div class="col-md-2"><small>Pt lum.</small></div>\n';
-    reportRoom+= '<div class="col-md-2"><small>Watts Max</small></div>\n';
+    reportRoom+= '<div class="col-md-4"><p>Label/p></div>\n';
+    reportRoom+= '<div class="col-md-2"><small>Sw.</small></div>\n';
+    reportRoom+= '<div class="col-md-2"><small>Pow. sec.</small></div>\n';
+    reportRoom+= '<div class="col-md-2"><small>Light pt.</small></div>\n';
+    reportRoom+= '<div class="col-md-2"><small>Max Power</small></div>\n';
     reportRoom+='</div>';
 
     var roomEnergy = [];
     for (var k in ROOM) {
       reportRoom+= '<div class="row">\n';
-      var nameRoom = "Pièce n°"+number+" <small>(sans nom)</small>";
+      var nameRoom = "Pièce n°"+number+" <small>(noname)</small>";
       if (ROOM[k].name != "") nameRoom = ROOM[k].name;
       reportRoom+= '<div class="col-md-4"><p>'+nameRoom+'</p></div>\n';
       var switchNumber = 0;
@@ -251,35 +251,35 @@ document.getElementById('report_mode').addEventListener("click", function() {
       number++;
       reportRoom+='</div>';
     }
-    reportRoom+='<hr/><h2>Détails Norme NF C 15-100</h2>\n';
+    reportRoom+='<hr/><h2>Norm details NF C 15-100</h2>\n';
     var number = 1;
 
     for (var k in ROOM) {
       reportRoom+= '<div class="row">\n';
       var nfc = true;
-      var nameRoom = "Pièce n°"+number+" <small>(sans nom)</small>";
+      var nameRoom = "Pièce n°"+number+" <small>(noname)</small>";
       if (ROOM[k].name != "") nameRoom = ROOM[k].name;
       reportRoom+= '<div class="col-md-4"><p>'+nameRoom+'</p></div>\n';
       if (ROOM[k].name == "") {
-        reportRoom+= '<div class="col-md-8"><p><i class="fa fa-ban" aria-hidden="true" style="color:red"></i> La pièce n\'ayant pas de libellé, Home Rough Editor ne peut vous fournir d\'informations.</p></div>\n';
+        reportRoom+= '<div class="col-md-8"><p><i class="fa fa-ban" aria-hidden="true" style="color:red"></i> Because the part does not have a label, Home Rough Editor cannot provide you with information</p></div>\n';
       }
       else {
         if (ROOM[k].name == "Salon") {
           for (var g in ROOM) {
-            if (ROOM[g].name == "Salle à manger") {
+            if (ROOM[g].name == "Dining room") {
               roomEnergy[k].light+=roomEnergy[g].light;
               roomEnergy[k].plug+=roomEnergy[g].plug;
               roomEnergy[k].switch+=roomEnergy[g].switch;
             }
           }
           reportRoom+= '<div class="col-md-8">';
-          if (roomEnergy[k].light == 0) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> Cette pièce doit disposer d\'au moins <b>1 point lumineux commandé</b> <small>(actuellement '+roomEnergy[k].light+')</small>.</p>\n';nfc=false;}
-          if (roomEnergy[k].plug < 5) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> Cette pièce doit disposer d\'au moins <b>5 prises de courant</b> <small>(actuellement '+roomEnergy[k].plug+')</small>.</p>\n';nfc=false;}
+          if (roomEnergy[k].light == 0) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> This room must have at least <b> 1 controlled light point </b> <small> (currently '+roomEnergy[k].light+')</small>.</p>\n';nfc=false;}
+          if (roomEnergy[k].plug < 5) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> This room must have at least <b> 5 power outlets </b> <small> (currently '+roomEnergy[k].plug+')</small>.</p>\n';nfc=false;}
           if (nfc) reportRoom+='<i class="fa fa-check" aria-hidden="true" style="color:green"></i>';
           reportRoom+= '</div>';
         }
-        if (ROOM[k].name == "Salle à manger") {
-          reportRoom+= '<div class="col-md-8"><p><i class="fa fa-info" aria-hidden="true" style="color:blue"></i> Cette pièce est liée au <b>salon / séjour</b> selon la norme.</p></div>\n';
+        if (ROOM[k].name == "Dining room") {
+          reportRoom+= '<div class="col-md-8"><p><i class="fa fa-info" aria-hidden="true" style="color:blue"></i> This room is linked to the <b> living room / living room </b> according to the standard.</p></div>\n';
         }
         if (ROOM[k].name.substr(0,7) == "Chambre") {
           reportRoom+= '<div class="col-md-8">';
