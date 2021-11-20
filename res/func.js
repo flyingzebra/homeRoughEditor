@@ -450,7 +450,7 @@ $('#textToLayer').on('hidden.bs.modal', function (e) {
   fonc_button('select_mode');
   action = 0;
   var textToMake = document.getElementById('labelBox').textContent;
-  if (textToMake != "" && textToMake != "Votre texte") {
+  if (textToMake != "" && textToMake != "Your text") {
     binder = new editor.obj2D("free", "text", document.getElementById('labelBox').style.color, snap, 0, 0, 0, "normal", 0, {text: textToMake, size: document.getElementById('sizePolice').value});
     binder.update();
     OBJDATA.push(binder);
@@ -464,7 +464,7 @@ $('#textToLayer').on('hidden.bs.modal', function (e) {
   else {
     $('#boxinfo').html('Mode sélection');
   }
-  document.getElementById('labelBox').textContent = "Votre texte";
+  document.getElementById('labelBox').textContent = "Your text";
   document.getElementById('labelBox').style.color = "#333333";
   document.getElementById('labelBox').style.fontSize = "15px";
   document.getElementById('sizePolice').value = 15;
