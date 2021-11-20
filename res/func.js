@@ -284,7 +284,7 @@ document.getElementById('report_mode').addEventListener("click", function() {
         if (ROOM[k].name.substr(0,7) == "Chambre") {
           reportRoom+= '<div class="col-md-8">';
           if (roomEnergy[k].light == 0) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> This room must have at least <b> 1 controlled light point</b> <small>(currently '+roomEnergy[k].light+')</small>.</p>\n';nfc=false;}
-          if (roomEnergy[k].plug < 3) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> This room must have at least <b> 3 power outlets</b> <small>(currently ''+roomEnergy[k].plug+')</small>.</p>\n';nfc=false;}
+          if (roomEnergy[k].plug < 3) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> This room must have at least <b> 3 power outlets</b> <small>(currently '+roomEnergy[k].plug+')</small>.</p>\n';nfc=false;}
           if (nfc) reportRoom+='<i class="fa fa-check" aria-hidden="true" style="color:green"></i>';
           reportRoom+= '</div>';
         }
@@ -1402,26 +1402,26 @@ $('#stair_mode').click(function() {
 });
 
 $('#node_mode').click(function() {
-    $('#boxinfo').html('Couper un mur<br/><span style=\"font-size:0.7em\">Attention : Couper le mur d\'une pièce peut annuler sa configuration</span>');
+    $('#boxinfo').html('Couper un mur<br/><span style=\"font-size:0.7em\">Warning: Cutting the wall of a room can undo its configuration.</span>');
     fonc_button('node_mode');
 });
 
 $('#text_mode').click(function() {
-    $('#boxinfo').html('Ajouter du texte<br/><span style=\"font-size:0.7em\">Amenez le curseur à l\'endroit voulu, puis tapez votre texte.</span>');
+    $('#boxinfo').html('Ajouter du texte<br/><span style=\"font-size:0.7em\">Move the cursor to the desired location, then type your text.</span>');
     fonc_button('text_mode');
 });
 
 $('#grid_mode').click(function() {
     if (grid_snap == 'on') {
         grid_snap = 'off';
-        $('#boxinfo').html('Grille d\'aide off');
+        $('#boxinfo').html('Help grid off');
         $('#grid_mode').removeClass('btn-success');
         $('#grid_mode').addClass('btn-warning');
         $('#grid_mode').html('GRID OFF');
         $('#boxgrid').css('opacity', '0.5');
     } else {
         grid_snap = 'on';
-        $('#boxinfo').html('Grille d\'aide on');
+        $('#boxinfo').html('Help grid on');
         $('#grid_mode').removeClass('btn-warning');
         $('#grid_mode').addClass('btn-success');
         $('#grid_mode').html('GRID ON <i class="fa fa-th" aria-hidden="true"></i>');
