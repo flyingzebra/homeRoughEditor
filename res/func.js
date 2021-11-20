@@ -442,7 +442,7 @@ window.addEventListener("load", function(){
   $('#myModal').modal();
 });
 
-document.getElementById('sizePolice').addEventListener("input", function() {
+document.getElementById('fontSize').addEventListener("input", function() {
   document.getElementById('labelBox').style.fontSize = this.value+'px';
 });
 
@@ -451,7 +451,7 @@ $('#textToLayer').on('hidden.bs.modal', function (e) {
   action = 0;
   var textToMake = document.getElementById('labelBox').textContent;
   if (textToMake != "" && textToMake != "Your text") {
-    binder = new editor.obj2D("free", "text", document.getElementById('labelBox').style.color, snap, 0, 0, 0, "normal", 0, {text: textToMake, size: document.getElementById('sizePolice').value});
+    binder = new editor.obj2D("free", "text", document.getElementById('labelBox').style.color, snap, 0, 0, 0, "normal", 0, {text: textToMake, size: document.getElementById('fontSize').value});
     binder.update();
     OBJDATA.push(binder);
     binder.graph.remove();
@@ -467,7 +467,7 @@ $('#textToLayer').on('hidden.bs.modal', function (e) {
   document.getElementById('labelBox').textContent = "Your text";
   document.getElementById('labelBox').style.color = "#333333";
   document.getElementById('labelBox').style.fontSize = "15px";
-  document.getElementById('sizePolice').value = 15;
+  document.getElementById('fontSize').value = 15;
 })
 
 if (!Array.prototype.includes) {
