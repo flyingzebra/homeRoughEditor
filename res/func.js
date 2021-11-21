@@ -406,6 +406,34 @@ document.getElementById('bboxRotation').addEventListener("input", function() {
     document.getElementById("bboxRotationVal").textContent = sliderValue;
   });
 
+  document.getElementById('objBoundingBoxColor').addEventListener("click", function () {
+
+
+
+
+    //alert("test")
+    /*
+
+
+    var sliderValue = this.value;
+    var objTarget = binder.obj;
+    objTarget.angle  = sliderValue;
+    objTarget.update();
+    binder.angle = sliderValue;
+    binder.update();
+    document.getElementById("bboxRotationVal").textContent = sliderValue;
+
+
+    var newValue = document.getElementById("bboxStepsVal").textContent;
+    if (newValue > 2) {
+      newValue--;
+      binder.obj.value  = newValue;
+      binder.obj.update();
+      document.getElementById("bboxStepsVal").textContent = newValue;
+    }
+    */
+  });
+
 document.getElementById('doorWindowWidth').addEventListener("input", function() {
   var sliderValue = this.value;
   var objTarget = binder.obj;
@@ -646,8 +674,29 @@ document.getElementById("wallTrash").addEventListener("click", function () {
 
 var textEditorColorBtn = document.querySelectorAll('.textEditorColor');
   for (var k = 0; k < textEditorColorBtn.length; k++) {
+
     textEditorColorBtn[k].addEventListener('click', function(){
+    if(typeof(binder.obj)=="undefined")
+    {
       document.getElementById('labelBox').style.color = this.style.color;
+      //alert("TODO NO OBJECT")
+    }
+    else
+    {
+      alert("TODO OBJECT")
+    }
+
+      // TODO
+/*
+      var sliderValue = this.value;
+      var objTarget = binder.obj;
+      objTarget.angle  = sliderValue;
+      objTarget.update();
+      binder.angle = sliderValue;
+      binder.update();
+      document.getElementById("bboxRotationVal").textContent = sliderValue;
+*/
+
     });
 }
 
@@ -1340,7 +1389,7 @@ $('#room_mode').click(function() {
 });
 
 $('#select_mode').click(function() {
-  $('#boxinfo').html('Mode "select"');
+  $('#boxinfo').html('Selection mode"');
   if (typeof(binder) != 'undefined') {
       binder.remove();
       delete binder;
@@ -1351,7 +1400,7 @@ $('#select_mode').click(function() {
 
 $('#line_mode').click(function() {
     $('#lin').css('cursor', 'crosshair');
-    $('#boxinfo').html('Création de mur(s)');
+    $('#boxinfo').html('Create walls');
     multi = 0;
     action = 0;
     // snap = calcul_snap(event, grid_snap);
@@ -1363,27 +1412,27 @@ $('#line_mode').click(function() {
 
 $('#partition_mode').click(function() {
     $('#lin').css('cursor', 'crosshair');
-    $('#boxinfo').html('Création de cloison(s)');
+    $('#boxinfo').html('Create partitions');
     multi = 0;
     fonc_button('partition_mode');
 });
 
 $('#rect_mode').click(function() {
     $('#lin').css('cursor', 'crosshair');
-    $('#boxinfo').html('Création de pièce(s)');
+    $('#boxinfo').html('Create rooms');
     fonc_button('rect_mode');
 });
 
 $('.door').click(function() {
     $('#lin').css('cursor', 'crosshair');
-    $('#boxinfo').html('Ajouter une porte');
+    $('#boxinfo').html('Add a door');
     $('#door_list').hide(200);
     fonc_button('door_mode', this.id);
 });
 
 $('.window').click(function() {
     $('#lin').css('cursor', 'crosshair');
-    $('#boxinfo').html('Ajouter une fenêtre');
+    $('#boxinfo').html('Add a window');
     $('#door_list').hide(200);
     $('#window_list').hide(200);
     fonc_button('door_mode', this.id);
@@ -1391,18 +1440,18 @@ $('.window').click(function() {
 
 $('.object').click(function() {
     cursor('move');
-    $('#boxinfo').html('Ajouter un objet');
+    $('#boxinfo').html('Add an object');
     fonc_button('object_mode', this.id);
 });
 
 $('#stair_mode').click(function() {
     cursor('move');
-    $('#boxinfo').html('Ajouter un escalier');
+    $('#boxinfo').html('Add a staircase');
     fonc_button('object_mode', 'simpleStair');
 });
 
 $('#node_mode').click(function() {
-    $('#boxinfo').html('Couper un mur<br/><span style=\"font-size:0.7em\">Warning: Cutting the wall of a room can undo its configuration.</span>');
+    $('#boxinfo').html('Cut a wall<br/><span style=\"font-size:0.7em\">Warning: Cutting the wall of a room can undo its configuration.</span>');
     fonc_button('node_mode');
 });
 
