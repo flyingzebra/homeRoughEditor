@@ -606,6 +606,8 @@ var editor = {
             }
             else {
               // this.graph.find('text').context.textContent = cc[tt].text;
+              
+
             }
           }
           var hingeStatus = this.hinge; // normal - reverse
@@ -613,6 +615,24 @@ var editor = {
           if (hingeStatus == 'normal') hingeUpdate = 1;
           else hingeUpdate = -1;
           this.graph.attr({"transform": "translate(" + (this.x) + "," + (this.y) + ") rotate(" +this.angle+ ",0,0) scale("+hingeUpdate+", 1)"});
+
+          if(this.class == "text")
+          {
+            var oText = this.graph.find('text')[0];
+            try{
+                  oText.setAttribute("stroke", this.color);
+            }
+            catch(e)
+            {
+              alert("error")
+            }
+            
+
+          }
+          
+
+
+
           var bbox = this.graph.get(0).getBoundingClientRect();
           bbox.x = (bbox.x * factor) - (offset.left * factor) + originX_viewbox;
           bbox.y = (bbox.y * factor) - (offset.top * factor) + originY_viewbox;
