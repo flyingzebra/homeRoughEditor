@@ -406,34 +406,6 @@ document.getElementById('bboxRotation').addEventListener("input", function() {
     document.getElementById("bboxRotationVal").textContent = sliderValue;
   });
 
-  document.getElementById('objBoundingBoxColor').addEventListener("click", function () {
-
-
-
-
-    //alert("test")
-    /*
-
-
-    var sliderValue = this.value;
-    var objTarget = binder.obj;
-    objTarget.angle  = sliderValue;
-    objTarget.update();
-    binder.angle = sliderValue;
-    binder.update();
-    document.getElementById("bboxRotationVal").textContent = sliderValue;
-
-
-    var newValue = document.getElementById("bboxStepsVal").textContent;
-    if (newValue > 2) {
-      newValue--;
-      binder.obj.value  = newValue;
-      binder.obj.update();
-      document.getElementById("bboxStepsVal").textContent = newValue;
-    }
-    */
-  });
-
 document.getElementById('doorWindowWidth').addEventListener("input", function() {
   var sliderValue = this.value;
   var objTarget = binder.obj;
@@ -676,26 +648,21 @@ var textEditorColorBtn = document.querySelectorAll('.textEditorColor');
   for (var k = 0; k < textEditorColorBtn.length; k++) {
 
     textEditorColorBtn[k].addEventListener('click', function(){
-    if(typeof(binder.obj)=="undefined")
-    {
-      document.getElementById('labelBox').style.color = this.style.color;
-      //alert("TODO NO OBJECT")
-    }
-    else
-    {
-      alert("TODO OBJECT")
-    }
 
-      // TODO
-/*
-      var sliderValue = this.value;
-      var objTarget = binder.obj;
-      objTarget.angle  = sliderValue;
-      objTarget.update();
-      binder.angle = sliderValue;
-      binder.update();
-      document.getElementById("bboxRotationVal").textContent = sliderValue;
-*/
+      document.getElementById('labelBox').style.color = this.style.color;
+
+      if(typeof(binder)!="undefined")
+      { 
+        var objTarget = binder.obj;
+        objTarget.type=this.style.color;
+        binder.update();
+        
+        var s=";"
+        for(var i in objTarget)
+          s+="objTarget."+i+"="+objTarget[i]+" - "+typeof(objTarget[i])+"\r\n";
+        alert(s);
+        // TODO
+      }
 
     });
 }
