@@ -401,6 +401,7 @@ document.getElementById('bboxRotation').addEventListener("input", function() {
     var objTarget = binder.obj;
     objTarget.angle  = sliderValue;
     objTarget.update();
+    // TODO
     binder.angle = sliderValue;
     binder.update();
     document.getElementById("bboxRotationVal").textContent = sliderValue;
@@ -458,11 +459,11 @@ $('#textToLayer').on('hidden.bs.modal', function (e) {
     $('#boxText').append(OBJDATA[OBJDATA.length-1].graph);
     OBJDATA[OBJDATA.length-1].update();
     delete binder;
-    $('#boxinfo').html('Texte ajouté');
+    $('#boxinfo').html('Texte added');
     save();
   }
   else {
-    $('#boxinfo').html('Mode sélection');
+    $('#boxinfo').html('Selection mode');
   }
   document.getElementById('labelBox').textContent = "Your text";
   document.getElementById('labelBox').style.color = "#333333";
@@ -649,19 +650,19 @@ var textEditorColorBtn = document.querySelectorAll('.textEditorColor');
 
     textEditorColorBtn[k].addEventListener('click', function(){
 
-      document.getElementById('labelBox').style.color = this.style.color;
-
-      if(typeof(binder)!="undefined")
+      if(typeof(binder)=="undefined")
+      {
+        // update text color in modal window (before text exists in svg canvas)
+        document.getElementById('labelBox').style.color = this.style.color;
+      }
+      else
       { 
+        // FVD
         var objTarget = binder.obj;
         objTarget.type=this.style.color;
+        objTarget.update();
+        binder.type=this.style.color;
         binder.update();
-        
-        var s=";"
-        for(var i in objTarget)
-          s+="objTarget."+i+"="+objTarget[i]+" - "+typeof(objTarget[i])+"\r\n";
-        alert(s);
-        // TODO
       }
 
     });
