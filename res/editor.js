@@ -596,43 +596,34 @@ var editor = {
 
 
       this.update = function() {
-        console.log("update")
+        // TODO
+        console.log("update");
         this.width = (this.size / meter).toFixed(2);
         this.height= (this.thick / meter).toFixed(2);
         cc = carpentryCalc(this.class, this.type, this.size, this.thick, this.value);
+        // UPDATE ONLY CARPENTRY ELEMENTS THAT CONTAIN PATH UPDATES
         for (var tt = 0; tt < cc.length; tt++) {
             if (cc[tt].path)  {
               this.graph.find('path')[tt].setAttribute("d", cc[tt].path);
             }
             else {
               // this.graph.find('text').context.textContent = cc[tt].text;
-              
-
             }
           }
           var hingeStatus = this.hinge; // normal - reverse
           var hingeUpdate;
-          if (hingeStatus == 'normal') hingeUpdate = 1;
-          else hingeUpdate = -1;
+          if (hingeStatus == 'normal') hingeUpdate = 1; else hingeUpdate = -1;
+          // UPDATE SVG <g> modifier attributes
           this.graph.attr({"transform": "translate(" + (this.x) + "," + (this.y) + ") rotate(" +this.angle+ ",0,0) scale("+hingeUpdate+", 1)"});
 
+          // FVD
           if(this.class == "text")
           {
             var oText = this.graph.find('text')[0];
-            try{
-                  oText.setAttribute("stroke", this.color);
-            }
-            catch(e)
-            {
-              alert("error")
-            }
-            
-
+            oText.setAttributeNS(null, 'stroke', this.type);
+            oText.setAttributeNS(null, 'fill', this.type);
           }
           
-
-
-
           var bbox = this.graph.get(0).getBoundingClientRect();
           bbox.x = (bbox.x * factor) - (offset.left * factor) + originX_viewbox;
           bbox.y = (bbox.y * factor) - (offset.top * factor) + originY_viewbox;
