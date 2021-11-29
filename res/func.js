@@ -196,7 +196,7 @@ document.getElementById('report_mode').addEventListener("click", function() {
     reportRoom+='<h2>Energy distribution by room</h2>\n';
     var number = 1;
     reportRoom+= '<div class="row">\n';
-    reportRoom+= '<div class="col-md-4"><p>Label/p></div>\n';
+    reportRoom+= '<div class="col-md-4"><p>Label</p></div>\n';
     reportRoom+= '<div class="col-md-2"><small>Sw.</small></div>\n';
     reportRoom+= '<div class="col-md-2"><small>Pow. sec.</small></div>\n';
     reportRoom+= '<div class="col-md-2"><small>Light pt.</small></div>\n';
