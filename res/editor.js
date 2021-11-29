@@ -297,7 +297,7 @@ var editor = {
     });
     var initCoords = wallToSplit.start;
     var initThick = wallToSplit.thick;
-    // CLEAR THE WALL BEFORE PIECES RE-BUILDER
+    // CLEAR THE WALL BEFORE ROOMS RE-BUILDER
     for (var k in WALLS) {
         if (isObjectsEquals(WALLS[k].child, wallToSplit)) WALLS[k].child = null;
         if (isObjectsEquals(WALLS[k].parent, wallToSplit)) {WALLS[k].parent = null;}

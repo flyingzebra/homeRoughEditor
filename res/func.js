@@ -206,7 +206,7 @@ document.getElementById('report_mode').addEventListener("click", function() {
     var roomEnergy = [];
     for (var k in ROOM) {
       reportRoom+= '<div class="row">\n';
-      var nameRoom = "Pièce n°"+number+" <small>(noname)</small>";
+      var nameRoom = "Room n°"+number+" <small>(noname)</small>";
       if (ROOM[k].name != "") nameRoom = ROOM[k].name;
       reportRoom+= '<div class="col-md-4"><p>'+nameRoom+'</p></div>\n';
       var switchNumber = 0;
@@ -257,7 +257,7 @@ document.getElementById('report_mode').addEventListener("click", function() {
     for (var k in ROOM) {
       reportRoom+= '<div class="row">\n';
       var nfc = true;
-      var nameRoom = "Pièce n°"+number+" <small>(noname)</small>";
+      var nameRoom = "Room n°"+number+" <small>(noname)</small>";
       if (ROOM[k].name != "") nameRoom = ROOM[k].name;
       reportRoom+= '<div class="col-md-4"><p>'+nameRoom+'</p></div>\n';
       if (ROOM[k].name == "") {
@@ -615,7 +615,7 @@ document.getElementById("applySurface").addEventListener("click", function () {
       $('#boxRoom').empty();
       $('#boxSurface').empty();
       editor.roomMaker(Rooms);
-      $('#boxinfo').html('Pièce modifiée');
+      $('#boxinfo').html('Room changed');
       fonc_button('select_mode');
 });
 
@@ -624,7 +624,7 @@ document.getElementById("resetRoomTools").addEventListener("click", function () 
   $('#panel').show(200);
   binder.remove();
   delete binder;
-  $('#boxinfo').html('Pièce modifiée');
+  $('#boxinfo').html('Room changed');
   fonc_button('select_mode');
 
 });
