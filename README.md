@@ -22,7 +22,6 @@ Personally I only test all this with the mozilla debug console
 - Make interoperability for browsers (actually good for Moz.)
 - Refine the CSS and buttons behavior
 - Refine the Historical system (use LocalStorage)
-- Complete the translation (i'm French) 
 - Make your own system/functions to export plan to any database 
 
 ## Built With
@@ -33,9 +32,5 @@ Personally I only test all this with the mozilla debug console
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](https://en.wikipedia.org/wiki/MIT_License) on Web file for details
-
-## Acknowledgments
-
-* [Grafikart](https://www.grafikart.fr/) for teaching me so much about javascript
 
 
