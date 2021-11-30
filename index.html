@@ -147,7 +147,7 @@
     </section>
     <br/>
     <li><button class="btn btn-danger fully" id="wallTrash"><i class="fa fa-2x fa-trash-o" aria-hidden="true"></i></button></li>
-    <li><button class="btn btn-info fully" style="margin-top:50px" onclick="fonc_button('select_mode');$('#boxinfo').html('Mode sélection');$('#wallTools').hide('300');$('#panel').show('300');"><i class="fa fa-2x fa-backward" aria-hidden="true" ></i></button></li>
+    <li><button class="btn btn-info fully" style="margin-top:50px" onclick="fonc_button('select_mode');$('#boxinfo').html('Selection mode');$('#wallTools').hide('300');$('#panel').show('300');"><i class="fa fa-2x fa-backward" aria-hidden="true" ></i></button></li>
     </ul>
   </div>
 
@@ -190,7 +190,7 @@
 
     <br/><br/>
     <button class="btn btn-danger fully" id="bboxTrash"><i class="fa fa-2x fa-trash-o" aria-hidden="true"></i></button>
-    <button class="btn btn-info" style="margin-top:100px" onclick="fonc_button('select_mode');$('#boxinfo').html('Mode sélection');$('#objBoundingBox').hide(100);$('#panel').show(200);binder.graph.remove();delete binder;"><i class="fa fa-2x fa-backward" aria-hidden="true" ></i></button>
+    <button class="btn btn-info" style="margin-top:100px" onclick="fonc_button('select_mode');$('#boxinfo').html('Selection mode');$('#objBoundingBox').hide(100);$('#panel').show(200);binder.graph.remove();delete binder;"><i class="fa fa-2x fa-backward" aria-hidden="true" ></i></button>
   </div>
 
   <div id="objTools" class="leftBox">
@@ -204,7 +204,7 @@
       <input type="range" id="doorWindowWidth" step="1" class="range" />
     <br/>
     <li><button class="btn btn-danger fully objTrash"><i class="fa fa-2x fa-trash-o" aria-hidden="true"></i></button></li>
-    <li><button class="btn btn-info" style="margin-top:100px" onclick="fonc_button('select_mode');$('#boxinfo').html('Mode sélection');$('#objTools').hide('100');$('#panel').show('200');binder.graph.remove();delete binder;rib();"><i class="fa fa-2x fa-backward" aria-hidden="true" ></i></button></li>
+    <li><button class="btn btn-info" style="margin-top:100px" onclick="fonc_button('select_mode');$('#boxinfo').html('selection mode');$('#objTools').hide('100');$('#panel').show('200');binder.graph.remove();delete binder;rib();"><i class="fa fa-2x fa-backward" aria-hidden="true" ></i></button></li>
     </ul>
   </div>
 
@@ -213,12 +213,12 @@
     <br/><br/>
     <p>If you have the actual area, you can write it</p>
     <div class="input-group">
-    <input type="text" class="form-control" id="roomSurface"  placeholder="surface réelle" aria-describedby="basic-addon2">
+    <input type="text" class="form-control" id="roomSurface"  placeholder="real surface area" aria-describedby="basic-addon2">
     <span class="input-group-addon" id="basic-addon2">m²</span>
     </div>
     <br/>
     <input type="hidden" id="roomName" value="" />
-    Wording :<br/>
+    Room type :<br/>
     <div class="btn-group">
         <button class="btn dropdown-toggle btn-default" data-toggle="dropdown" id="roomLabel">Wording of the room   <span class="caret"></span></button>
     <ul class="dropdown-menu">
@@ -282,7 +282,7 @@
     <div class="roomColor" data-type="gradientBlack" style="background:linear-gradient(30deg,#3c3b3b, #000000);"></div>
     <div class="roomColor" data-type="gradientNeutral" style="background:linear-gradient(30deg,#e2c695, #c69d56);"></div>
     <br/><br/>
-    <p>Matérials</p>
+    <p>Materials</p>
     <div class="roomColor" data-type="wood" style="background: url('TX_wood.jpg');"></div>
     <div class="roomColor" data-type="tiles" style="background: url('TX_tiles.jpg');"></div>
     <div class="roomColor" data-type="granite" style="background: url('TX_granite.jpg');"></div>
