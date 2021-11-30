@@ -306,8 +306,8 @@
         <li><button class="btn btn-success fully " id="select_mode" style="box-shadow:2px 2px 3px #ccc;"><i class="fa fa-2x fa-mouse-pointer" aria-hidden="true"></i></button></li>
         <br/>
         <li>
-        <button class="btn btn-default fully " style="margin-bottom:0px" id="line_mode" data-toggle="tooltip" data-placement="right" title="Make walls">WALL</button>
-        <button class="btn btn-default fully " style="margin-bottom:0px" id="partition_mode" data-toggle="tooltip" data-placement="right" title="Make partitions wall">PARTITION</button>
+        <button class="btn btn-default halfy pull-right" style="margin-right:5px;padding:0px" id="line_mode" data-toggle="tooltip" data-placement="right" title="Make walls">WALL</button>
+        <button class="btn btn-default halfy pull-right" style="margin-right:5px;padding:0px" id="partition_mode" data-toggle="tooltip" data-placement="right" title="Make partitions wall">PARTITION</button>
         <div class="funkyradio"  style="font-size:0.8em">
           <div class="funkyradio-success">
             <input type="checkbox" id="multi" checked/>
@@ -316,12 +316,12 @@
         </div>
         </li>
         <br/>
-        <li><button class="btn btn-default fully " id="room_mode">CONFIGURE ROOM</button></li>
+        <li><button class="btn btn-default fully " style="margin-bottom:0px;padding:0px" id="room_mode">CONFIGURE ROOM</button></li>
         <br/>
-        <li><button class="btn btn-default fully " id="node_mode"><i class="fa fa-2x fa-scissors" aria-hidden="true"></i></button></li>
+        <li><button class="btn btn-default fully " style="margin-bottom:0px;padding:0px" id="node_mode"><i class="fa fa-2x fa-scissors" aria-hidden="true"></i></button></li>
         <br/>
-        <li><button class="btn btn-default fully " id="distance_mode" data-toggle="tooltip" data-placement="right" title="Add a measurement">MEASURE</button></li>
-        <li><button class="btn btn-default fully " id="text_mode" data-toggle="tooltip" data-placement="right" title="Add text">TEXT</button></li>
+        <li><button class="btn btn-default fully " style="padding:0px" id="distance_mode" data-toggle="tooltip" data-placement="right" title="Add a measurement">MEASURE</button></li>
+        <li><button class="btn btn-default fully " style="padding:0px" id="text_mode" data-toggle="tooltip" data-placement="right" title="Add text">TEXT</button></li>
         <br/>
         <div id="door_list"  class="list-unstyled sub" style="box-shadow:2px 2px 3px #ccc;display:none;background:#fff;border-radius: 0 5px 5px 0; padding:10px;position:absolute;left:200px;width:150px">
           <button class="btn fully door" id="aperture">Aperture</button>
@@ -329,7 +329,7 @@
           <button class="btn fully door" id="double">Double</button>
           <button class="btn fully door" id="pocket">Pocket</button>
         </div>
-        <li><button class="btn btn-default fully " id="door_mode" onclick="$('.sub').hide();$('#door_list').toggle(200);$('#window_list').hide();">DOOR</button></li>
+        <li><button class="btn btn-default halfy pull-right" style="margin-right:5px;padding:0px" id="door_mode" onclick="$('.sub').hide();$('#door_list').toggle(200);$('#window_list').hide();">DOOR</button></li>
 
         <div id="window_list"  class="list-unstyled sub" style="box-shadow:2px 2px 3px #ccc;display:none;background:#fff;border-radius: 0 5px 5px 0; padding:10px;position:absolute;left:200px;width:150px">
           <button class="btn fully window" id="fix">Fixed</button>
@@ -337,8 +337,8 @@
           <button class="btn fully window" id="twin">Double</button>
           <button class="btn fully window" id="bay">Sliding</button>
         </div>
-        <li><button class="btn btn-default fully " id="window_mode" onclick="$('.sub').hide();$('#window_list').toggle(200);$('#door_list').hide()">WINDOW</button></li>
-        <li><button class="btn btn-default fully object" id="stair_mode" onclick="$('.sub').hide();$('#door_list').hide()">STAIR</button></li>
+        <li><button class="btn btn-default halfy pull-right" style="margin-right:5px;padding:0px" id="window_mode" onclick="$('.sub').hide();$('#window_list').toggle(200);$('#door_list').hide()">WINDOW</button></li>
+        <li><button class="btn btn-default halfy pull-right object" style="margin-right:5px;padding:0px" id="stair_mode" onclick="$('.sub').hide();$('#door_list').hide()">STAIR</button></li>
         <br/>
         <div id="energy_list"  class="list-unstyled sub" style="box-shadow:2px 2px 3px #ccc;display:none;background:#fff;border-radius: 0 5px 5px 0; padding:10px;position:absolute;left:200px;bottom:40px;width:600px">
           <div style="width:600px;float:left;padding:10px">
@@ -376,11 +376,11 @@
           </div>
 
       </div>
-      <li><button class="btn btn-default fully " id="object_mode" onclick="$('.sub').hide();$('#energy_list').toggle(200);">ENERGY</button></li>
+      <li><button class="btn btn-default halfy pull-right" style="margin-right:5px;padding:0px" id="object_mode" onclick="$('.sub').hide();$('#energy_list').toggle(200);">ENERGY</button></li>
       <!-- <li><button class="btn btn-default fully " id="object_mode" onclick="$('.sub').hide();$('#object_list').toggle(200);">FURNITURE</button></li> -->
       <br/>
 
-      <li><button class="btn btn-default fully " id="layer_mode" onclick="$('.sub').hide();$('#layer_list').toggle(200);">Layers</button></li>
+      <li><button class="btn btn-default fully " style="padding:0px" id="layer_mode" onclick="$('.sub').hide();$('#layer_list').toggle(200);">Layers</button></li>
 
     <div id="layer_list"  class="list-unstyled sub" style="box-shadow:2px 2px 3px #ccc;display:none;background:#fff;border-radius: 0 5px 5px 0; padding:10px;position:absolute;left:200px;bottom:100px;width:200px">
       <div class="funkyradio" style="font-size:0.8em">
