@@ -1683,7 +1683,15 @@ event.preventDefault();
                 if (objTarget.class == 'stair') {
                   document.getElementById("bboxStepsVal").textContent = objTarget.value;
                   $('#stepsCounter').show();
+                  $('#objBoundingBoxColor').hide();  // FVD
                 }
+                if (objTarget.class == 'text') {
+                  $('#objBoundingBoxColor').show();  // FVD
+                }
+                if (objTarget.class == 'energy') {
+                  $('#objBoundingBoxColor').hide();  // FVD
+                }
+
                 document.getElementById("bboxWidth").value = objTarget.width * 100;
                 document.getElementById("bboxWidthVal").textContent = objTarget.width * 100;
                 document.getElementById("bboxHeight").value = objTarget.height * 100;

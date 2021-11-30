@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>HOME ROUGH EDITOR v0.93</title>
+    <title>HOME ROUGH EDITOR v0.94</title>
     <base href="res/" target="_blank">
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
@@ -14,7 +14,9 @@
 
 <body style="background:#f2eee5;margin:0;padding:0; ">
 
-  <header>Edité par Home Rough Editor Ver.0.91</header>
+  <img src="102-128.png" width=20px />
+
+  <header>Home Rough Editor Ver.0.91</header>
 
   <svg id="lin" viewBox="0 0 1100 700"  preserveAspectRatio="xMidYMin slice" xmlns="http://www.w3.org/2000/svg" style="z-index:2;margin:0;padding:0;width:100vw;height:100vh;position:absolute;top:0;left:0;right:0;bottom:0">
 
@@ -69,16 +71,16 @@
       </linearGradient>
 
       <pattern id="grass" patternUnits="userSpaceOnUse" width="256" height="256">
-        <image xlink:href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWh5nEP_Trwo96CJjev6lnKe0_dRdA63RJFaoc3-msedgxveJd" x="0" y="0" width="256" height="256" />
+        <image href="TX_grass.jpg" x="0" y="0" width="256" height="256" />
       </pattern>
       <pattern id="wood" patternUnits="userSpaceOnUse" width="32" height="256">
-        <image xlink:href="https://orig00.deviantart.net/e1f2/f/2015/164/8/b/old_oak_planks___seamless_texture_by_rls0812-d8x6htl.jpg" x="0" y="0" width="256" height="256" />
+        <image href="TX_wood.jpg" x="0" y="0" width="256" height="256" />
       </pattern>
       <pattern id="tiles" patternUnits="userSpaceOnUse" width="25" height="25">
-        <image xlink:href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrkoI2Eiw8ya3J_swhfpZdi_ug2sONsI6TxEd1xN5af3DX9J3R" x="0" y="0" width="256" height="256" />
+        <image href="TX_tiles.jpg" x="0" y="0" width="256" height="256" />
       </pattern>
       <pattern id="granite" patternUnits="userSpaceOnUse" width="256" height="256">
-        <image xlink:href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9_nEMhnWVV47lxEn5T_HWxvFwkujFTuw6Ff26dRTl4rDaE8AdEQ" x="0" y="0" width="256" height="256" />
+        <image href="TX_granite.jpg" x="0" y="0" width="256" height="256" />
       </pattern>
       <pattern id="smallGrid" width="60" height="60" patternUnits="userSpaceOnUse">
         <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#777" stroke-width="0.25"/>
@@ -165,7 +167,7 @@
     </section>
 
     <div id="stepsCounter" style="display:none;">
-      <p><span id="bboxSteps">Nb steps [2-15] : <span id="bboxStepsVal">0</span></span></p>
+      <p><span id="bboxSteps">N° steps [2-15] : <span id="bboxStepsVal">0</span></span></p>
       <button class="btn btn-info" id="bboxStepsAdd"><i class="fa fa-plus" aria-hidden="true"></i></button>
       <button class="btn btn-info" id="bboxStepsMinus"><i class="fa fa-minus" aria-hidden="true"></i></button>
     </div>
@@ -281,10 +283,10 @@
     <div class="roomColor" data-type="gradientNeutral" style="background:linear-gradient(30deg,#e2c695, #c69d56);"></div>
     <br/><br/>
     <p>Matérials</p>
-    <div class="roomColor" data-type="wood" style="background: url('https://orig00.deviantart.net/e1f2/f/2015/164/8/b/old_oak_planks___seamless_texture_by_rls0812-d8x6htl.jpg');"></div>
-    <div class="roomColor" data-type="tiles" style="background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrkoI2Eiw8ya3J_swhfpZdi_ug2sONsI6TxEd1xN5af3DX9J3R');"></div>
-    <div class="roomColor" data-type="granite" style="background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9_nEMhnWVV47lxEn5T_HWxvFwkujFTuw6Ff26dRTl4rDaE8AdEQ');"></div>
-    <div class="roomColor" data-type="grass" style="background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWh5nEP_Trwo96CJjev6lnKe0_dRdA63RJFaoc3-msedgxveJd');"></div>
+    <div class="roomColor" data-type="wood" style="background: url('TX_wood.jpg');"></div>
+    <div class="roomColor" data-type="tiles" style="background: url('TX_tiles.jpg');"></div>
+    <div class="roomColor" data-type="granite" style="background: url('TX_granite.jpg');"></div>
+    <div class="roomColor" data-type="grass" style="background: url('TX_grass.jpg');"></div>
     <div data-type="#ff008a" style="clear:both"></div>
     <br/><br/>
       <input type="hidden" id="roomBackground" value="gradientNeutral" />
@@ -484,7 +486,7 @@
   </div>
 
   <div id="moveBox" style="position:absolute;right:-150px;top:10px;color:#08d;background:transparent;z-index:2;text-align:center;transition-duration: 0.2s;transition-timing-function: ease-in;">
-    <p style="margin:0px 0 0 0;font-size:11px"><img src="https://cdn4.iconfinder.com/data/icons/mathematics-doodle-3/48/102-128.png" width=20px /> Home Rough Editor</p>
+    <p style="margin:0px 0 0 0;font-size:11px"><img src="102-128.png" width=20px /> Home Rough Editor</p>
     <div class="pull-right" style="margin:10px">
     <p style="margin:0"><button class="btn btn-xs btn-info zoom" data-zoom="zoomtop" style="box-shadow:2px 2px 3px #ccc;"><i class="fa fa-arrow-up" aria-hidden="true"></i></button></p>
     <p style="margin:0">

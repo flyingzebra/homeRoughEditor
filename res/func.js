@@ -655,7 +655,7 @@ var textEditorColorBtn = document.querySelectorAll('.textEditorColor');
         // update text color in modal window (before text exists in svg canvas)
         document.getElementById('labelBox').style.color = this.style.color;
       }
-      else
+      else if(binder.obj.class=="text")
       { 
         // FVD
         var objTarget = binder.obj;
@@ -663,6 +663,11 @@ var textEditorColorBtn = document.querySelectorAll('.textEditorColor');
         objTarget.update();
         binder.type=this.style.color;
         binder.update();
+      }
+      else
+      {
+        document.getElementById('labelBox').style.color = this.style.color;
+        alert("binder.obj.class="+binder.obj.class)
       }
 
     });
