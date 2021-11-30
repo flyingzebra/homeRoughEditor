@@ -8,7 +8,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installing
 
-You just have to copy the files into a directory and open the index.html file in your browser. Version 0.93 of homeRoughtEditor is operational from **Mozilla 39!**
+You just have to copy the files into a directory and open the index.html file in your browser.
 
 ### See example
 ![homeRoughEditor](/res/example_room.png?raw=true)
