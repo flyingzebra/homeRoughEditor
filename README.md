@@ -15,7 +15,7 @@ You just have to copy the files into a directory and open the index.html file in
 
 ## Running the tests
 
-Personally I only test all this with the mozilla debug console
+Personally I only test all this with the Safari debug console
 
 ## TODO
 - Make TouchScreen functions for tablet (or smartphone, but too tiny screen i think...)
