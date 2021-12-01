@@ -29,6 +29,7 @@ Personally I only test all this with the Safari debug console
 
 * [Atom.io](https://atom.io/) - My code editor. Simple and free.
 * [Bootstrap](getbootstrap.com/docs/3.3/) - Bootstrap, a sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.
+* [SVG Path editor](https://yqnn.github.io/svg-path-editor/) - some SVG symbols have been drafted thanks to this tool
 
 ## License
 
