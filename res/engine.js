@@ -1691,6 +1691,7 @@ event.preventDefault();
                 if (objTarget.class == 'energy') {
                   $('#objBoundingBoxColor').hide();  // FVD
                 }
+                alert(objTarget.class+" "+objTarget.type)
 
                 document.getElementById("bboxWidth").value = objTarget.width * 100;
                 document.getElementById("bboxWidthVal").textContent = objTarget.width * 100;

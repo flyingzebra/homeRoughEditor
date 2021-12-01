@@ -1688,6 +1688,15 @@ function carpentryCalc(classObj, typeObj, sizeObj, thickObj, dividerObj = 10) {
       construc.params.height = 36;
       construc.family = 'stick';
     }
+
+    if (typeObj == 'boiler') {
+      construc.push({'path':"M -16 -4 L -16 4 A 1 1 0 0 0 16 4 L 16 -4 A 1 1 0 0 0 -16 -4 Z", 'fill': "#fff", 'stroke': "#000", 'strokeDashArray': '', 'r': '50%'});
+      construc.params.width = 36;
+      construc.params.height = 36;
+      construc.family = 'stick';
+    }
+
+
     if (typeObj == 'radiator') {
       construc.push({'path': "m -20,-10 l 40,0 l0,20 l-40,0 Z", 'fill': "#fff", 'stroke': "#333", 'strokeDashArray': ''});
       construc.push({'path': "M -15,-10 L -15,10", 'fill': "#fff", 'stroke': "#333", 'strokeDashArray': ''});
