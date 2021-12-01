@@ -667,7 +667,7 @@ var textEditorColorBtn = document.querySelectorAll('.textEditorColor');
       else
       {
         document.getElementById('labelBox').style.color = this.style.color;
-        alert("binder.obj.class="+binder.obj.class)
+        //alert("binder.obj.class="+binder.obj.class)
       }
 
     });
@@ -1569,10 +1569,10 @@ function carpentryCalc(classObj, typeObj, sizeObj, thickObj, dividerObj = 10) {
     construc.params.resize = false;
     construc.params.rotate = false;
     if (typeObj == 'fuse') {
-      construc.push({'path': "m -20,-20 l 40,0 l0,40 l-40,0 Z", 'fill': "#fff", 'stroke': "#333", 'strokeDashArray': ''});
+      construc.push({'path': "m -20,-10 l 40,0 l0,20 l-40,0 Z", 'fill': "#fff", 'stroke': "#333", 'strokeDashArray': ''});
       construc.push({'text': "FUSE", 'x': '0', 'y':'5', 'fill': "#333333", 'stroke': "none", 'fontSize': '0.9em',"strokeWidth": "0.4px"});
       construc.params.width = 40;
-      construc.params.height = 40;
+      construc.params.height = 20;
       construc.family = 'stick';
     }
     if (typeObj == 'switch') {
