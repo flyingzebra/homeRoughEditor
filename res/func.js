@@ -1578,20 +1578,50 @@ function carpentryCalc(classObj, typeObj, sizeObj, thickObj, dividerObj = 10) {
     if (typeObj == 'switch') {
       construc.push({'path': qSVG.circlePath(0, 0, 16), 'fill': "#fff", 'stroke': "#333", 'strokeDashArray': ''});
       construc.push({'path': qSVG.circlePath(-2, 4, 5), 'fill': "none", 'stroke': "#333", 'strokeDashArray': ''});
-      construc.push({'path': "m 0,0 5,-9", 'fill': "none", 'stroke': "#333", 'strokeDashArray': ''});
+      construc.push({'path': "m 0 0 l 5 -9 L 8 -7", 'fill': "none", 'stroke': "#333", 'strokeDashArray': ''});
       construc.params.width = 36;
       construc.params.height = 36;
       construc.family = 'stick';
-
     }
-    if (typeObj == 'doubleSwitch') {
+    if (typeObj == '2Pswitch') {
+      construc.push({'path': qSVG.circlePath(0, 0, 16), 'fill': "#fff", 'stroke': "#333", 'strokeDashArray': ''});
+      construc.push({'path': qSVG.circlePath(-2, 4, 5), 'fill': "none", 'stroke': "#333", 'strokeDashArray': ''});
+      construc.push({'path': "m 0 0 l 5 -9 L 8 -7", 'fill': "none", 'stroke': "#333", 'strokeDashArray': ''});
+      construc.push({'path': "m 4 -7 L 7 -5", 'fill': "none", 'stroke': "#333", 'strokeDashArray': ''});
+      construc.params.width = 36;
+      construc.params.height = 36;
+      construc.family = 'stick';
+    }
+    if (typeObj == 'changeoverSwitch') {
+      construc.push({'path': qSVG.circlePath(0, 0, 16), 'fill': "#fff", 'stroke': "#333", 'strokeDashArray': ''});
+      construc.push({'path': qSVG.circlePath(0,0, 4), 'fill': "none", 'stroke': "#333", 'strokeDashArray': ''});
+      construc.push({'path': "m 2,-3 5,-8 3,2", 'fill': "none", 'stroke': "#333", 'strokeDashArray': ''});
+      construc.push({'path': "m -2,3 -5,8 -3,-2", 'fill': "none", 'stroke': "#333", 'strokeDashArray': ''});      
+      construc.params.width = 36;
+      construc.params.height = 36;
+      construc.family = 'stick';
+    }    
+    if (typeObj == '2PchangeoverSwitch') {
+      construc.push({'path': qSVG.circlePath(0, 0, 16), 'fill': "#fff", 'stroke': "#333", 'strokeDashArray': ''});
+      construc.push({'path': qSVG.circlePath(0,0, 4), 'fill': "none", 'stroke': "#333", 'strokeDashArray': ''});
+      construc.push({'path': "m 2,-3 5,-8 3,2", 'fill': "none", 'stroke': "#333", 'strokeDashArray': ''});
+      
+      construc.push({'path': "m -2,3 -5,8 -3,-2", 'fill': "none", 'stroke': "#333", 'strokeDashArray': ''});      
+      construc.params.width = 36;
+      construc.params.height = 36;
+      construc.family = 'stick';
+    }
+    if (typeObj == 'crossSwitch') {
       construc.push({'path': qSVG.circlePath(0, 0, 16), 'fill': "#fff", 'stroke': "#333", 'strokeDashArray': ''});
       construc.push({'path': qSVG.circlePath(0,0, 4), 'fill': "none", 'stroke': "#333", 'strokeDashArray': ''});
       construc.push({'path': "m 2,-3 5,-8 3,2", 'fill': "none", 'stroke': "#333", 'strokeDashArray': ''});
       construc.push({'path': "m -2,3 -5,8 -3,-2", 'fill': "none", 'stroke': "#333", 'strokeDashArray': ''});
+      construc.push({'path': "m -2,-3 -5,-8 -3,2", 'fill': "none", 'stroke': "#333", 'strokeDashArray': ''});
+      construc.push({'path': "m 2,3 5,8 3,-2", 'fill': "none", 'stroke': "#333", 'strokeDashArray': ''});
       construc.params.width = 36;
       construc.params.height = 36;
       construc.family = 'stick';
+    
     }
     if (typeObj == 'dimmer') {
       construc.push({'path': qSVG.circlePath(0, 0, 16), 'fill': "#fff", 'stroke': "#333", 'strokeDashArray': ''});
@@ -1689,13 +1719,12 @@ function carpentryCalc(classObj, typeObj, sizeObj, thickObj, dividerObj = 10) {
       construc.family = 'stick';
     }
 
-    if (typeObj == 'boiler') {
+    if (typeObj == 'boiler') {  // FVD
       construc.push({'path':"M -16 -4 L -16 4 A 1 1 0 0 0 16 4 L 16 -4 A 1 1 0 0 0 -16 -4 Z", 'fill': "#fff", 'stroke': "#000", 'strokeDashArray': '', 'r': '50%'});
       construc.params.width = 36;
       construc.params.height = 36;
       construc.family = 'stick';
     }
-
 
     if (typeObj == 'radiator') {
       construc.push({'path': "m -20,-10 l 40,0 l0,20 l-40,0 Z", 'fill': "#fff", 'stroke': "#333", 'strokeDashArray': ''});
