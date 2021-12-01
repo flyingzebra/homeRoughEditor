@@ -18,16 +18,18 @@ You just have to copy the files into a directory and open the index.html file in
 Personally I only test all this with the Safari debug console
 
 ## TODO
-- Make TouchScreen functions for tablet (or smartphone, but too tiny screen i think...)
-- Make interoperability for browsers (actually good for Moz.)
+- Make TouchScreen functions for tablet (or smartphone, but screen is a bit too tiny perhaps...)
+- Browser interoperability
 - Refine the CSS and buttons behavior
 - Refine the Historical system (use LocalStorage)
 - Make your own system/functions to export plan to any database 
+- Export to a file format readable by Three.js and Blender
 
 ## Built With
 
 * [Atom.io](https://atom.io/) - My code editor. Simple and free.
 * [Bootstrap](getbootstrap.com/docs/3.3/) - Bootstrap, a sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.
+* [SVG Path editor](https://yqnn.github.io/svg-path-editor/) - some SVG symbols have been drafted thanks to this tool
 
 ## License
 
