@@ -1453,6 +1453,9 @@ $('#grid_mode').click(function() {
 
 //  RETURN PATH(s) ARRAY FOR OBJECT + PROPERTY params => bindBox (false = open sideTool), move, resize, rotate
 function carpentryCalc(classObj, typeObj, sizeObj, thickObj, dividerObj = 10) {
+
+  console.log("carpentryCalc('"+classObj+"','"+typeObj+"')");
+
   var construc = [];
   construc.params = {};
   construc.params.bindBox = false;
@@ -1605,8 +1608,9 @@ function carpentryCalc(classObj, typeObj, sizeObj, thickObj, dividerObj = 10) {
       construc.push({'path': qSVG.circlePath(0, 0, 16), 'fill': "#fff", 'stroke': "#333", 'strokeDashArray': ''});
       construc.push({'path': qSVG.circlePath(0,0, 4), 'fill': "none", 'stroke': "#333", 'strokeDashArray': ''});
       construc.push({'path': "m 2,-3 5,-8 3,2", 'fill': "none", 'stroke': "#333", 'strokeDashArray': ''});
-      
-      construc.push({'path': "m -2,3 -5,8 -3,-2", 'fill': "none", 'stroke': "#333", 'strokeDashArray': ''});      
+      construc.push({'path': "M 6 -9 L 9 -7 Z", 'fill': "none", 'stroke': "#333", 'strokeDashArray': ''});
+      construc.push({'path': "m -2,3 -5,8 -3,-2", 'fill': "none", 'stroke': "#333", 'strokeDashArray': ''});
+      construc.push({'path': "M -6 9 L -9 7 Z", 'fill': "none", 'stroke': "#333", 'strokeDashArray': ''});
       construc.params.width = 36;
       construc.params.height = 36;
       construc.family = 'stick';
@@ -1704,7 +1708,14 @@ function carpentryCalc(classObj, typeObj, sizeObj, thickObj, dividerObj = 10) {
       construc.params.height = 36;
       construc.family = 'stick';
     }
-
+    if (typeObj == 'transfo') {  // FVD
+      construc.push({'path':qSVG.circlePath(0, 0, 10), 'fill': "#fff", 'stroke': "#000", 'strokeDashArray': ''});
+      construc.push({'path':qSVG.circlePath(10, 0, 10), 'fill': "#fff", 'stroke': "#000", 'strokeDashArray': ''});
+      construc.push({'path':qSVG.circlePath(0, 0, 10), 'fill': "none", 'stroke': "#000", 'strokeDashArray': ''});
+      construc.params.width = 36;
+      construc.params.height = 36;
+      construc.family = 'stick';
+    }
     if (typeObj == 'heater') {
       construc.push({'path':qSVG.circlePath(0, 0, 16), 'fill': "#fff", 'stroke': "#000", 'strokeDashArray': ''});
       construc.push({'path': "m-15,-4 l30,0", 'fill': "none", 'stroke': "#333", 'strokeDashArray': ''});
@@ -1718,14 +1729,12 @@ function carpentryCalc(classObj, typeObj, sizeObj, thickObj, dividerObj = 10) {
       construc.params.height = 36;
       construc.family = 'stick';
     }
-
     if (typeObj == 'boiler') {  // FVD
       construc.push({'path':"M -16 -4 L -16 4 A 1 1 0 0 0 16 4 L 16 -4 A 1 1 0 0 0 -16 -4 Z", 'fill': "#fff", 'stroke': "#000", 'strokeDashArray': '', 'r': '50%'});
       construc.params.width = 36;
       construc.params.height = 36;
       construc.family = 'stick';
     }
-
     if (typeObj == 'radiator') {
       construc.push({'path': "m -20,-10 l 40,0 l0,20 l-40,0 Z", 'fill': "#fff", 'stroke': "#333", 'strokeDashArray': ''});
       construc.push({'path': "M -15,-10 L -15,10", 'fill': "#fff", 'stroke': "#333", 'strokeDashArray': ''});

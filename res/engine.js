@@ -110,10 +110,10 @@ document.addEventListener("keydown", function(event) {
         if (binder.family == 'collision') {
           var found = false;
 
-            if (editor.rayCastingWalls({x: binder.bbox.left, y:binder.bbox.top})) found = true;
-            if (!found && editor.rayCastingWalls({x: binder.bbox.left, y:binder.bbox.bottom})) found = true;
-            if (!found && editor.rayCastingWalls({x: binder.bbox.right, y:binder.bbox.top})) found = true;
-            if (!found && editor.rayCastingWalls({x: binder.bbox.right, y:binder.bbox.bottom})) found = true;
+            if (editor.rayCastingWalls({"x": binder.bbox.left, "y":binder.bbox.top})) found = true;
+            if (!found && editor.rayCastingWalls({"x": binder.bbox.left, "y":binder.bbox.bottom})) found = true;
+            if (!found && editor.rayCastingWalls({"x": binder.bbox.right, "y":binder.bbox.top})) found = true;
+            if (!found && editor.rayCastingWalls({"x": binder.bbox.right, "y":binder.bbox.bottom})) found = true;
 
           if (!found) {
             binder.x = snap.x;
@@ -133,8 +133,8 @@ document.addEventListener("keydown", function(event) {
             binder.oldX = pos.x;
             binder.oldY = pos.y;
             var angleWall = qSVG.angleDeg(pos.wall.start.x, pos.wall.start.y, pos.wall.end.x, pos.wall.end.y);
-            var v1 = qSVG.vectorXY({x:pos.wall.start.x, y:pos.wall.start.y}, {x:pos.wall.end.x, y:pos.wall.end.y});
-            var v2 = qSVG.vectorXY({x:pos.wall.end.x, y:pos.wall.end.y}, snap);
+            var v1 = qSVG.vectorXY({"x":pos.wall.start.x, "y":pos.wall.start.y}, {"x":pos.wall.end.x, "y":pos.wall.end.y});
+            var v2 = qSVG.vectorXY({"x":pos.wall.end.x, "y":pos.wall.end.y}, snap);
             binder.x = pos.x - Math.sin(pos.wall.angle*(360/2*Math.PI))*binder.thick/2;
             binder.y = pos.y - Math.cos(pos.wall.angle*(360/2*Math.PI))*binder.thick/2;
               var newAngle = qSVG.vectorDeter(v1, v2);
@@ -162,7 +162,7 @@ document.addEventListener("keydown", function(event) {
             stroke: "#e2b653",
             fill : "#e2b653"
         });
-        binder = new editor.obj2D("free", "measure", "", {x:0,y:0}, 0, 0, 0, "normal", 0, "");
+        binder = new editor.obj2D("free", "measure", "", {"x":0,"y":0}, 0, 0, 0, "normal", 0, "");
         labelMeasure = qSVG.create("none", "text", {
             x: 0,
             y: - 10,
@@ -267,8 +267,8 @@ document.addEventListener("keydown", function(event) {
                                       // family, classe, type, pos, angle, angleSign, size, hinge, thick
                 binder = new editor.obj2D("inWall", "doorWindow", modeOption, wallSelect, 0, 0, 60, "normal", wall.thick);
                 var angleWall = qSVG.angleDeg(wall.start.x, wall.start.y, wall.end.x, wall.end.y);
-                var v1 = qSVG.vectorXY({x:wall.start.x, y:wall.start.y}, {x:wall.end.x, y:wall.end.y});
-                var v2 = qSVG.vectorXY({x:wall.end.x, y:wall.end.y}, snap);
+                var v1 = qSVG.vectorXY({"x":wall.start.x, "y":wall.start.y}, {"x":wall.end.x, "y":wall.end.y});
+                var v2 = qSVG.vectorXY({"x":wall.end.x, "y":wall.end.y}, snap);
                 var newAngle = qSVG.vectorDeter(v1, v2);
                 if (Math.sign(newAngle) == 1)  {
                   angleWall+=180;
@@ -284,8 +284,8 @@ document.addEventListener("keydown", function(event) {
               else
               {
                 var angleWall = qSVG.angleDeg(wall.start.x, wall.start.y, wall.end.x, wall.end.y);
-                var v1 = qSVG.vectorXY({x:wall.start.x, y:wall.start.y}, {x:wall.end.x, y:wall.end.y});
-                var v2 = qSVG.vectorXY({x:wall.end.x, y:wall.end.y}, snap);
+                var v1 = qSVG.vectorXY({"x":wall.start.x, "y":wall.start.y}, {"x":wall.end.x, "y":wall.end.y});
+                var v2 = qSVG.vectorXY({"x":wall.end.x, "y":wall.end.y}, snap);
                   var newAngle = qSVG.vectorDeter(v1, v2);
                   binder.angleSign = 0;
                   if (Math.sign(newAngle) == 1) {
@@ -428,7 +428,7 @@ document.addEventListener("keydown", function(event) {
                     binder = new editor.obj2D("inWall", "socle", "", objTarget, objTarget.angle, 0, sizeObj, "normal", thickObj);
                     binder.update();
 
-                    binder.oldXY = {x: objTarget.x, y: objTarget.y}; // FOR OBJECT MENU
+                    binder.oldXY = {"x": objTarget.x, "y": objTarget.y}; // FOR OBJECT MENU
                     $('#boxbind').append(binder.graph);
                   }
                   else {
@@ -1042,8 +1042,8 @@ document.addEventListener("keydown", function(event) {
               var objTarget = binder.obj;
               var wall = wallSelect.wall;
               var angleWall = qSVG.angleDeg(wall.start.x, wall.start.y, wall.end.x, wall.end.y);
-              var v1 = qSVG.vectorXY({x:wall.start.x, y:wall.start.y}, {x:wall.end.x, y:wall.end.y});
-              var v2 = qSVG.vectorXY({x:wall.end.x, y:wall.end.y}, snap);
+              var v1 = qSVG.vectorXY({"x":wall.start.x, "y":wall.start.y}, {"x":wall.end.x, "y":wall.end.y});
+              var v2 = qSVG.vectorXY({"x":wall.end.x, "y":wall.end.y}, snap);
               var newAngle = qSVG.vectorDeter(v1, v2);
               binder.angleSign = 0;
               objTarget.angleSign = 0;
@@ -1177,7 +1177,7 @@ event.preventDefault();
           var node = binder.data;
           pox = node.x;
           poy = node.y;
-          var nodeControl = {x: pox, y: poy};
+          var nodeControl = {"x": pox, "y": poy};
 
           // DETERMINATE DISTANCE OF OPPOSED NODE ON EDGE(s) PARENT(s) OF THIS NODE !!!! NODE 1 -- NODE 2 SYSTE% :-(
           wallListObj = []; // SUPER VAR -- WARNING
@@ -1388,6 +1388,9 @@ event.preventDefault();
   function _MOUSEUP(event) {
     if (showRib) $('#boxScale').show(200);
     drag = 'off';
+    if(typeof(x)=="undefined") x=0;
+    if(typeof(y)=="undefined") y=0;
+
     cursor('default');
     if (mode == 'select_mode') {
         if (typeof(binder) != 'undefined') {
@@ -1435,10 +1438,10 @@ event.preventDefault();
         var bbox = labelMeasure.get(0).getBoundingClientRect();
         bbox.x = (bbox.x * factor) - (offset.left * factor) + originX_viewbox;
         bbox.y = (bbox.y * factor) - (offset.top * factor) + originY_viewbox;
-        bbox.origin = {x: bbox.x + (bbox.width/2), y: bbox.y + (bbox.height/2)};
+        bbox.origin = {"x": bbox.x + (bbox.width/2), "y": bbox.y + (bbox.height/2)};
         binder.bbox = bbox;
         binder.realBbox = [
-          {x: binder.bbox.x, y: binder.bbox.y}, {x: binder.bbox.x+binder.bbox.width, y: binder.bbox.y},{x: binder.bbox.x+binder.bbox.width, y: binder.bbox.y+binder.bbox.height}, {x: binder.bbox.x, y: binder.bbox.y+binder.bbox.height}];
+          {"x": binder.bbox.x, "y": binder.bbox.y}, {"x": binder.bbox.x+binder.bbox.width, "y": binder.bbox.y},{"x": binder.bbox.x+binder.bbox.width, "y": binder.bbox.y+binder.bbox.height}, {"x": binder.bbox.x, "y": binder.bbox.y+binder.bbox.height}];
           binder.size = binder.bbox.width;
           binder.thick = binder.bbox.height;
         binder.graph.append(labelMeasure);
@@ -1497,9 +1500,9 @@ event.preventDefault();
 
     if (mode == 'node_mode') {
         if (typeof(binder) != 'undefined') { // ALSO ON MOUSEUP WITH HAVE CIRCLEBINDER ON ADDPOINT
-            var newWall = new editor.wall({x: binder.data.x, y: binder.data.y}, binder.data.wall.end, "normal", binder.data.wall.thick);
+            var newWall = new editor.wall({"x": binder.data.x, "y": binder.data.y}, binder.data.wall.end, "normal", binder.data.wall.thick);
             WALLS.push(newWall);
-            binder.data.wall.end = {x: binder.data.x, y: binder.data.y};
+            binder.data.wall.end = {"x": binder.data.x, "y": binder.data.y};
             binder.remove();
             delete binder;
             editor.architect(WALLS);
@@ -1535,12 +1538,12 @@ event.preventDefault();
         $('#linetemp').remove(); // DEL LINE HELP CONSTRUC 0 45 90
         intersectionOff();
 
-        var sizeWall = qSVG.measure({x:x,y:y},{x:pox,y:poy});
+        var sizeWall = qSVG.measure({"x":x,"y":y},{"x":pox,"y":poy});
         sizeWall = sizeWall / meter;
         if ($('#line_construc').length && sizeWall > 0.3) {
           var sizeWall = wallSize;
           if (mode == 'partition_mode') sizeWall = partitionSize;
-          var wall = new editor.wall({x:pox,y:poy}, {x:x,y:y}, "normal", sizeWall);
+          var wall = new editor.wall({"x":pox,"y":poy}, {"x":x,"y":y}, "normal", sizeWall);
           WALLS.push(wall);
           editor.architect(WALLS);
 
@@ -1550,7 +1553,7 @@ event.preventDefault();
           }
           else action = 0;
           $('#boxinfo').html('Wall added <span style=\'font-size:0.6em\'>Moy. ' + (qSVG.measure(
-            {x: pox, y: poy}, {x: x, y: y}) / 60).toFixed(2) + ' m</span>');
+            {"x": pox, "y": poy}, {"x": x, "y": y}) / 60).toFixed(2) + ' m</span>');
           $('#line_construc').remove(); // DEL LINE CONSTRUC HELP TO VIEW NEW SEG PATH
           lengthTemp.remove();
           delete lengthTemp;
