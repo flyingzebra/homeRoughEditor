@@ -111,6 +111,7 @@ function save(boot = false) {
   }
   HISTORY.push(JSON.stringify({objData: OBJDATA, wallData: WALLS, roomData: ROOM}));
   localStorage.setItem('history', JSON.stringify(HISTORY));
+  console.log(JSON.stringify(HISTORY).replace(/\\\"/g, "\"").replace(/\{\"x\":/g,"\r\n{\"x\":"))
   HISTORY.index++;
   if (HISTORY.index>1) $('#undo').removeClass('disabled');
   for (var k in WALLS) {

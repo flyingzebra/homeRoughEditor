@@ -185,6 +185,10 @@ var editor = {
         var interDw = qSVG.intersectionOfEquations(eqWallDw, eqP, "object");
         wall.coords.push(interDw, interUp);
         dWay = dWay + "L"+interDw.x+","+interDw.y+" L"+interUp.x+","+interUp.y+" Z";
+
+        //for(var i=0;i<wall.coords.length;i++) // FVD
+        //var i = wall.coords.length-1;
+        //  console.log("wall.coords="+wall.coords[i].x+","+wall.coords[i].y)
       }
       else {
         var eqP = qSVG.perpendicularEquation(eqWallUp, wall.end.x, wall.end.y);
@@ -253,7 +257,7 @@ var editor = {
       return true;
     }
     else {
-      $('#boxinfo').html('Les murs contenant des portes ou des fenêtres ne peuvent être une séparation !');
+      $('#boxinfo').html('Walls containing doors or windows cannot have a separation!');
       return false;
     }
   },
@@ -414,7 +418,7 @@ var editor = {
   },
 
 
-  // RETURN OBJDATA INDEX LIST FROM AN WALL
+  // RETURN OBJDATA INDEX LIST FROM A WALL
   objFromWall:  function(wall, typeObj = false) {
     var objList = [];
     for (var scan = 0; scan < OBJDATA.length; scan++) {
