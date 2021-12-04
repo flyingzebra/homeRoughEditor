@@ -1108,16 +1108,13 @@ document.addEventListener("keydown", function(event) {
         zoom_maker('zoomdrag', distX, distY);
     }
 
-    /*
-    if (mode == 'export_mode') {
-
-      alert("EXPORT MODE");
-      save();
-      $('#export_list').hide(200);
-      mode = '';
-      fonc_button('select_mode');
+  if (mode == 'export_mode') {
+    if (action == 0) {
+      action = 1;
+      $('#exportJSON').modal();
+      mode == 'exportJSON_mode';
+    }
   }
-  */
 
 
 } // END MOUSEMOVE

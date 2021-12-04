@@ -1458,12 +1458,33 @@ $('#grid_mode').click(function() {
 $('.export').click(function() {
   $('#boxinfo').html('Export data');
   $('#export_list').hide(200);
+  save();
+  switch(this.id)
+  {
+    case "homerough":
+      
+      //$('#JSONview').val( JSON.stringify(HISTORY).replace(/\\\"/g, "\"").replace(/\{\"x\":/g,"\r\n{\"x\":") );
+      $('#exportJSONLabel').text(this.id+".json");
+      var jsonObj = {};
+      var jsonViewer = new JSONViewer();
 
-  alert("EXPORT "+this.id);
-  save(); // TODO differentiate export modes
+
+      jsonObj = JSON.parse(HISTORY);
+      document.querySelector("#json").appendChild(jsonViewer.getContainer());
+			jsonViewer.showJSON(jsonObj);
+
+
+      //console.log(JSON.stringify(HISTORY).replace(/\\\"/g, "\"").replace(/\{\"x\":/g,"\r\n{\"x\":"));
+      fonc_button('export_mode');
+
+    break;
+    case "threejs":
+      alert("THREE.JS TODO");
+    break;
+  }
+  // TODO differentiate export modes
   //mode = '';
   //fonc_button('select_mode');
-
 });
 
 

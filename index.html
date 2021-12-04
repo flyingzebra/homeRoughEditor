@@ -321,8 +321,9 @@
         <br/>
         <li><button class="btn btn-default fully " style="margin-bottom:0px;padding:0px" id="node_mode"><i class="fa fa-2x fa-scissors" aria-hidden="true"></i></button></li>
         <br/>
-        <li><button class="btn btn-default fully " style="padding:0px" id="distance_mode" data-toggle="tooltip" data-placement="right" title="Add a measurement">MEASURE</button></li>
-        <li><button class="btn btn-default fully " style="padding:0px" id="text_mode" data-toggle="tooltip" data-placement="right" title="Add text">TEXT</button></li>
+        <li><button class="btn btn-default halfy pull-left" style="margin-right:5px;padding:0px" id="distance_mode" data-toggle="tooltip" data-placement="right" title="Add a measurement">MEASURE</button></li>
+        <li><button class="btn btn-default halfy pull-right" style="margin-right:5px;padding:0px" id="layer_mode" onclick="$('.sub').hide();$('#layer_list').toggle(200);">LAYERS</button></li>
+        <br>
         <br/>
         <div id="door_list"  class="list-unstyled sub" style="box-shadow:2px 2px 3px #ccc;display:none;background:#fff;border-radius: 0 5px 5px 0; padding:10px;position:absolute;left:200px;width:150px">
           <button class="btn fully door" id="aperture">Aperture</button>
@@ -330,6 +331,9 @@
           <button class="btn fully door" id="double">Double</button>
           <button class="btn fully door" id="pocket">Pocket</button>
         </div>
+
+        <li><button class="btn btn-default halfy pull-left" style="padding:0px" id="text_mode" data-toggle="tooltip" data-placement="right" title="Add text">TEXT</button></li>
+
         <li><button class="btn btn-default halfy pull-right" style="margin-right:5px;padding:0px" id="door_mode" onclick="$('.sub').hide();$('#door_list').toggle(200);$('#window_list').hide();">DOOR</button></li>
 
         <div id="window_list"  class="list-unstyled sub" style="box-shadow:2px 2px 3px #ccc;display:none;background:#fff;border-radius: 0 5px 5px 0; padding:10px;position:absolute;left:200px;width:150px">
@@ -381,11 +385,11 @@
           </div>
 
       </div>
-      <li><button class="btn btn-default halfy pull-right" style="margin-right:5px;padding:0px" id="object_mode" onclick="$('.sub').hide();$('#energy_list').toggle(200);">ENERGY</button></li>
-      <!-- <li><button class="btn btn-default fully " id="object_mode" onclick="$('.sub').hide();$('#object_list').toggle(200);">FURNITURE</button></li> -->
-      <br/>
-
-      <li><button class="btn btn-default fully " style="padding:0px" id="layer_mode" onclick="$('.sub').hide();$('#layer_list').toggle(200);">Layers</button></li>
+      <li><button class="btn btn-default halfy pull-left " style="margin-right:5px;padding:0px" id="object_mode" onclick="$('.sub').hide();$('#energy_list').toggle(200);">ENERGY</button></li>
+      <!--
+      <li><button class="btn btn-default halfy pull-right " style="margin-right:5px;padding:0px" id="object_mode" onclick="$('.sub').hide();$('#object_list').toggle(200);">FURNISH</button></li>
+      -->
+      <br/><br/>
 
     <div id="layer_list"  class="list-unstyled sub" style="box-shadow:2px 2px 3px #ccc;display:none;background:#fff;border-radius: 0 5px 5px 0; padding:10px;position:absolute;left:200px;bottom:100px;width:200px">
       <div class="funkyradio" style="font-size:0.8em">
@@ -414,12 +418,19 @@
       </div>
     </div>
 
-    <li><button class="btn btn-default halfy " id="report_mode" title="Show report"><i class="fa fa-calculator" aria-hidden="true"></i>
-    <button class="btn btn-default halfy pull-right" onclick="fullscreen();this.style.display='none';$('#nofull_mode').show();" id="full_mode" title="Full screen"><i class="fa fa-expand" aria-hidden="true"></i></button>
-    <button class="btn btn-default halfy pull-right" style="display:none" onclick="outFullscreen();this.style.display='none';$('#full_mode').show();" id="nofull_mode" data-toggle="tooltip" data-placement="right" title="Full screen"><i class="fa fa-compress" aria-hidden="true"></i></button>
-    <li>
+    <br><br><br>
 
-      <li><button class="btn btn-default halfy pull-right" style="margin-right:5px;padding:0px" id="export_mode" onclick="$('.sub').hide();$('#export_list').toggle(200);">EXPORT</button></li>
+    <li><button class="btn btn-default fully" style="margin-right:5px;padding:0px" id="export_mode" onclick="$('.sub').hide();$('#export_list').toggle(200);">EXPORT</button></li>
+
+    <li>
+      <button class="btn btn-default halfy pull-left" id="report_mode" title="Show report"><i class="fa fa-calculator" aria-hidden="true"></i>
+      <button class="btn btn-default halfy pull-right" onclick="fullscreen();this.style.display='none';$('#nofull_mode').show();" id="full_mode" title="Full screen"><i class="fa fa-expand" aria-hidden="true"></i></button>
+      <button class="btn btn-default fully" style="display:none" onclick="outFullscreen();this.style.display='none';$('#full_mode').show();" id="nofull_mode" data-toggle="tooltip" data-placement="right" title="Full screen"><i class="fa fa-compress" aria-hidden="true"></i></button>
+    <li>
+    <br>
+
+    
+    
 
       <div id="export_list"  class="list-unstyled sub" style="box-shadow:2px 2px 3px #ccc;display:none;background:#fff;border-radius: 0 5px 5px 0; padding:10px;position:absolute;left:200px;width:150px">
         <button class="btn fully export" id="homerough">HomeRough JSON</button>
@@ -489,6 +500,27 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
           <button type="button" class="btn btn-primary" onclick="$('#textToLayer').modal('hide');">Apply</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="exportJSON" tabindex="-1" role="dialog" aria-labelledby="exportJSONLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">JSON export</h4>
+        </div>
+        <div class="modal-body">
+          <div id="exportJSONLabel"></div>
+          <textarea id=JSONview style="width:100%;height:300px" hidden></textarea>
+          <div id="json" style="overflow:scroll;height:300px"></div>
+          <div style="clear:both"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" onclick="$('#exportJSON').modal('hide');">Save</button>
         </div>
       </div>
     </div>
