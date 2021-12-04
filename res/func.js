@@ -352,7 +352,7 @@ document.getElementById("bboxTrash").addEventListener("click", function () {
   $('#objBoundingBox').hide(100);
   $('#panel').show(200);
   fonc_button('select_mode');
-  $('#boxinfo').html('Objet effacé');
+  $('#boxinfo').html('Object removed');
   delete binder;
   rib();
 });
@@ -518,7 +518,7 @@ function throttle(callback, delay) {
         var now = +new Date();
         var args = arguments;
         if (last && now < last + delay) {
-            // le délai n'est pas écoulé on reset le timer
+            // the time has not expired, we reset the timer
             clearTimeout(timer);
             timer = setTimeout(function () {
                 last = now;
@@ -699,7 +699,7 @@ var objTrashBtn = document.querySelectorAll(".objTrash");
       obj.graph.remove();
       OBJDATA.splice(OBJDATA.indexOf(obj), 1);
       fonc_button('select_mode');
-      $('#boxinfo').html('Mode sélection');
+      $('#boxinfo').html('Selection mode');
       $('#panel').show('200');
       binder.graph.remove();
       delete binder;
