@@ -1107,6 +1107,19 @@ document.addEventListener("keydown", function(event) {
         // poy = event.pageY;
         zoom_maker('zoomdrag', distX, distY);
     }
+
+    /*
+    if (mode == 'export_mode') {
+
+      alert("EXPORT MODE");
+      save();
+      $('#export_list').hide(200);
+      mode = '';
+      fonc_button('select_mode');
+  }
+  */
+
+
 } // END MOUSEMOVE
 
 // *****************************************************************************************************

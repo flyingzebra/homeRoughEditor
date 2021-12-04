@@ -1315,7 +1315,7 @@ function raz_button() {
     $('#partition_mode').removeClass('btn-success');
     $('#partition_mode').addClass('btn-default');
     $('#door_mode').removeClass('btn-success');
-    $('#door_mode').addClass('btn-default');
+    $('#door_mode').addClass('btn-default');  
     $('#node_mode').removeClass('btn-success');
     $('#node_mode').addClass('btn-default');
     $('#text_mode').removeClass('btn-success');
@@ -1328,6 +1328,8 @@ function raz_button() {
     $('#object_mode').addClass('btn-default');
     $('#stair_mode').removeClass('btn-success');
     $('#stair_mode').addClass('btn-default');
+    $('#export_mode').removeClass('btn-success');
+    $('#export_mode').addClass('btn-default');  
 }
 
 function fonc_button(modesetting ,option) {
@@ -1451,6 +1453,19 @@ $('#grid_mode').click(function() {
         $('#boxgrid').css('opacity', '1');
     }
 });
+
+
+$('.export').click(function() {
+  $('#boxinfo').html('Export data');
+  $('#export_list').hide(200);
+
+  alert("EXPORT "+this.id);
+  save(); // TODO differentiate export modes
+  //mode = '';
+  //fonc_button('select_mode');
+
+});
+
 
 //  RETURN PATH(s) ARRAY FOR OBJECT + PROPERTY params => bindBox (false = open sideTool), move, resize, rotate
 function carpentryCalc(classObj, typeObj, sizeObj, thickObj, dividerObj = 10) {
