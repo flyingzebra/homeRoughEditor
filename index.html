@@ -429,9 +429,6 @@
     <li>
     <br>
 
-    
-    
-
       <div id="export_list"  class="list-unstyled sub" style="box-shadow:2px 2px 3px #ccc;display:none;background:#fff;border-radius: 0 5px 5px 0; padding:10px;position:absolute;left:200px;bottom:100px;width:150px">
         <button class="btn fully export" id="homerough">HomeRough JSON</button>
         <button class="btn fully export" id="threejs">Three.js JSON</button>
@@ -519,8 +516,8 @@
           <div style="clear:both"></div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary" onclick="$('#exportJSON').modal('hide');">Save</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="raz_button();$('.sub').hide();mode=''">Cancel</button>
+          <button type="button" class="btn btn-primary" onclick="$('#exportJSON').modal('hide');downloader($('#JSONview').val(),'application/json','testfile.json');raz_button();$('.sub').hide();mode=''>Save</button>
         </div>
       </div>
     </div>
