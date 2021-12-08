@@ -151,6 +151,21 @@ function load(index = HISTORY.index, boot = false) {
   rib();
 }
 
+function downloader(data, type, name) {
+  let blob = new Blob([data], {type});
+  let url = window.URL.createObjectURL(blob);
+  downloadURI(url, name);
+  window.URL.revokeObjectURL(url);
+}
+
+function downloadURI(uri, name) {
+    let link = document.createElement("a");
+    link.download = name;
+    link.href = uri;
+    link.click();
+}
+
+
 $('svg').each(function() {
     $(this)[0].setAttribute('viewBox', originX_viewbox + ' ' + originY_viewbox + ' ' + width_viewbox + ' ' + height_viewbox)
 });
@@ -402,7 +417,6 @@ document.getElementById('bboxRotation').addEventListener("input", function() {
     var objTarget = binder.obj;
     objTarget.angle  = sliderValue;
     objTarget.update();
-    // TODO
     binder.angle = sliderValue;
     binder.update();
     document.getElementById("bboxRotationVal").textContent = sliderValue;
@@ -1333,14 +1347,12 @@ function raz_button() {
 }
 
 function fonc_button(modesetting ,option) {
-  save();
-
-  $('.sub').hide();
+    save();
+    $('.sub').hide();
     raz_button();
     if (option != 'simpleStair') {
       $('#' + modesetting).removeClass('btn-default');
       $('#' + modesetting).addClass('btn-success');
-
     }
     mode = modesetting;
     modeOption = option;
@@ -1462,21 +1474,14 @@ $('.export').click(function() {
   switch(this.id)
   {
     case "homerough":
-      
-      //$('#JSONview').val( JSON.stringify(HISTORY).replace(/\\\"/g, "\"").replace(/\{\"x\":/g,"\r\n{\"x\":") );
+      $('#JSONview').val( JSON.stringify(HISTORY).replace(/\\\"/g, "\"") );
       $('#exportJSONLabel').text(this.id+".json");
-      var jsonObj = {};
       var jsonViewer = new JSONViewer();
-
-
-      jsonObj = JSON.parse(HISTORY);
+      var jsonObj = JSON.parse(HISTORY);
       document.querySelector("#json").appendChild(jsonViewer.getContainer());
 			jsonViewer.showJSON(jsonObj);
-
-
       //console.log(JSON.stringify(HISTORY).replace(/\\\"/g, "\"").replace(/\{\"x\":/g,"\r\n{\"x\":"));
       fonc_button('export_mode');
-
     break;
     case "threejs":
       alert("THREE.JS TODO");
