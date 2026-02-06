@@ -6,6 +6,9 @@ Help me to make this project an essential and free resource for all, so that any
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
+<a href="https://flyingzebra.github.io/homeRoughEditor/">LAUNCH THE APP</a>
+
+
 ### Installing
 
 You just have to copy the files into a directory and open the index.html file in your browser.
